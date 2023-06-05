@@ -1,14 +1,12 @@
 "use client";
 
 import "animate.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { BiChevronsDown } from "react-icons/bi";
-import Header from "@/components/ui/InicialHeader";
-import { Button } from "@/components/ui/button"; 
+import FooterInicial from "@/components/ui/FooterInitial";
 
 export default function Home() {
-  const [clicked, setClicked] = useState(false);
   const [state, setState] = useState(true);
 
   setInterval(() => {
@@ -24,7 +22,12 @@ export default function Home() {
       <div className="h-screen">
         <div className="relative h-full bg-[url('/images/morales.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
           <div className="bg-black w-full h-full lg:bg-opacity-60">
-            <Header/>
+          <Image
+              src="/images/logobig.png"
+              width={240}
+              height={130}
+              alt="Logo"
+              className="animate__animated animate__fadeInDown animate__sloweranimate__fadeInDown animate__slower"/>
             <div
               className="flex
            justify-around"
@@ -98,17 +101,20 @@ export default function Home() {
                   {" "}
                   Diga a seus amigos o que é bom.{" "}
                 </h1>{" "}
-                <Button className="bg-blue-400
-                 text-white
-                  rounded-md
-                   w-40
-                    mt-10
-                     hover:bg-white
-                      hover:text-black
-                       transition
-                        drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                          Comece Aqui
-                          </Button>
+                <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center
+                 sm:space-y-0 sm:space-x-4 mt-5 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]
+                 animate__animated animate__fadeInDown animate__slower">
+            <a href="auth" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                Comece Aqui
+                <svg aria-hidden="true" className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </a>
+            <a href="#" className="inline-flex justify-center items-center py-3 px-5 text-base bg-white
+             font-medium text-center text-black rounded-lg border border-gray-300 hover:bg-gray-100
+              focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700
+               dark:focus:ring-gray-800">
+                Veja mais
+            </a>  
+        </div>
               </div>
               
             </div>
@@ -130,6 +136,33 @@ export default function Home() {
           </div>
         </div>
         <div className="relative h-full flex flex-col items-center">
+          <h1 className="text-5xl mt-10 animate__animated animate__fadeInDown
+          animate__slower font-semibold capitalize">Os maiores sucessos cinematográficos!</h1>
+          
+<div className="grid md:grid-cols-7 gap-4 mt-14 animate__animated animate__fadeInDown animate__slower">
+    <div>
+        <Image className="h-auto max-w-full rounded-lg" src="/images/joker.jpg" alt="Poster do Joker" width={270} height={270}/>
+    </div>
+    <div>
+        <Image className="h-auto max-w-full rounded-lg" src="/images/lamb.jpg" alt="Poster de Lamb" width={270} height={270}/>
+    </div>
+    <div>
+        <Image className="h-auto max-w-full rounded-lg" src="/images/wood.jpg" alt="Poster de Wood" width={270} height={270}/>
+    </div>
+    <div>
+        <Image className="h-auto max-w-full rounded-lg" src="/images/som.jpg" alt="Poster de The Son" width={270} height={270}/>
+    </div>
+    <div>
+        <Image className="h-auto max-w-full rounded-lg" src="/images/star.jpeg" alt="Poster de Star Wars" width={270} height={270}/>
+    </div>
+    <div>
+        <Image className="h-auto max-w-full rounded-lg" src="/images/spider.jpg" alt="Poster de Spider-man" width={270} height={270}/>
+    </div>
+    <div>
+        <Image className="h-auto max-w-full rounded-lg" src="/images/midsommar.jpg" alt="Poster de Midssomar" width={270} height={270}/>
+    </div>
+</div>
+            <FooterInicial/>
         </div>
       </div>
       

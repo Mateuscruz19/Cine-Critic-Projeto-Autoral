@@ -7,6 +7,7 @@ import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import Footer from "@/components/ui/FooterInitial";
+import Link from 'next/link';
 
 const Auth = () => {
   const [variant, setVariant] = useState("login");
@@ -40,8 +41,9 @@ const Auth = () => {
     <>
     <div className="h-screen">
       <div className="relative h-full bg-no-repeat bg-center bg-fixed bg-cover bg-[url('/images/spiderverveback.jpg')]">
-        <div className="bg-black w-full h-full lg:bg-opacity-60">
+        <div className="relative bg-black w-full h-full lg:bg-opacity-60">
           <nav className="px-12 py-5 ">
+          <Link href="/">
             <Image
               src="/images/logobig.png"
               width={240}
@@ -50,6 +52,7 @@ const Auth = () => {
               className={`animate__animated animate__fadeInDown animate__slower
               ${variant === 'login' ? "animate__fadeInDown animate__slower" : "animate__fadeInUp animate__slower"} `}
             />
+            </Link>
           </nav>
           <div className="flex justify-around">
             <div className="px-16 py-16 mt-10">
@@ -68,7 +71,6 @@ const Auth = () => {
                         {variant === "login" ? "as suas novidades!" : "e de sua opinião!"}
               </h1>
               <h1 className={`animate__animated
-               
                  text-2xl
                   mt-8
                    font-semibold
