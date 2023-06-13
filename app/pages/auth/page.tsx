@@ -2,10 +2,11 @@
 
 //React
 import "animate.css";
-import { useState,useCallback } from "react";
+import { useState,useCallback,useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "@/app/services/auth-service/signIn";
 import { signUp } from "@/app/services/auth-service/signUp";
+import { getCookie } from "cookies-next";
 
 //Components
 import Footer from "@/components/ui/FooterInitial";
@@ -13,10 +14,11 @@ import Nav from "@/components/auth/Nav";
 import Title from "@/components/auth/Title";
 import Form from "@/components/auth/Form";
 import { toast } from 'react-toastify';
+import { setCookie } from 'cookies-next';
 
 const Auth = () => {
-  const router = useRouter()
 
+  const router = useRouter()
   const [variant, setVariant] = useState("login");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -24,10 +26,21 @@ const Auth = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [clicked, setClicked] = useState(false);
 
+//   useEffect(() => {
+//     const token = getCookie('authorization')
+//     console.log(token)
+//     if(token){
+//       toast('Login realizado com sucesso!')
+//       router.push("/pages/dashboard/home");
+//     }
+// },[router])
+
+
   const login = useCallback(async () => {
     try {
-      await signIn(email, password);
+     const response = await signIn(email, password);
       toast('Login realizado com sucesso!')
+      setCookie('authorization',response.token)
       router.push("/pages/dashboard/home");
     } catch (err) {
       toast('Não foi possível fazer o login!');
