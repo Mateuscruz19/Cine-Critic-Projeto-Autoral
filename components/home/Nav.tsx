@@ -6,7 +6,7 @@ export default function Nav() {
     <nav className="px-12 py-5" >
         <Link href={"/"}>
       <Image
-        src="/images/logobig.png"
+        src="/images/logos/logo2.png"
         width={240}
         height={130}
         alt="Logo"

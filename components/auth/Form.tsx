@@ -13,20 +13,6 @@ export default function Form(props: any) {
     props.setClicked(props.clicked ? false : true);
   }, [props]);
 
-  const login = useCallback(async () => {
-    try {
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-
-  const register = useCallback(async () => {
-    try {
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-
   return (
     <div
       className={`animate__animated bg-black bg-opacity-70 px-16 py-16
@@ -61,8 +47,17 @@ export default function Form(props: any) {
           value={props.password}
           onChange={(e: any) => props.setPassword(e.target.value)}
         />
+        {props.variant === "register" && (
+        <Input
+          type="password"
+          id="password"
+          label="Confirme a senha"
+          value={props.confirmPassword}
+          onChange={(e: any) => props.setConfirmPassword(e.target.value)}
+        />
+        )}
       </div>
-      <Button variant={props.variant} />
+      <Button variant={props.variant} login={props.login} register={props.register} Tes={props.Tes}/>
       <div className="flex flex-row items-center gap-4 mt-8 justify-center">
         <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
           <FcGoogle size={32} />
@@ -75,7 +70,7 @@ export default function Form(props: any) {
         {props.variant === "login" ? "Primeira vez ao site?" : "Já tem uma conta?"}
         <span
           onClick={toggleVariant}
-          className="text-orange-400 ml-1 hover:underline cursor-pointer"
+          className="text-[#C20808] ml-1 hover:underline cursor-pointer"
         >
           {props.variant === "login" ? "Crie uma conta!" : "Logue!"}
         </span>

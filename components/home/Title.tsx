@@ -1,4 +1,4 @@
-import ButtonBlue from "./ButtonBlue";
+import ButtonBlue from "./ButtonRed";
 import ButtonWhite from "./ButtonWhite";
 
 export default function Title() {
@@ -17,7 +17,7 @@ export default function Title() {
         className="animate__animated
    animate__fadeInDown
     animate__slower
-     text-white
+     text-[#FF5757]
       text-9xl
        font-bold
 
